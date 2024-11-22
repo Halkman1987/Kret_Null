@@ -12,10 +12,9 @@ namespace WindowsFormsApp1
     {
         public void DrawGorizont(int x, int y, ref PictureBox pct)
         {
-            int width = pct.Width;
-            int height = pct.Height;
-            int stepx = width / 10; //ширина ячейки 
-            int stepy = height / 10;// высота ячейки
+            
+            int stepx = Form1.Pctwidth / 10; //ширина ячейки 
+            int stepy = Form1.Pctheight / 10;// высота ячейки
             int bufX = x; // stepx; //количество целых ячеек
             int bufY = y; // stepy;
 

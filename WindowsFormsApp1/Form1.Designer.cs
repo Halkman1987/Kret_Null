@@ -30,11 +30,11 @@
         {
             this.btnClickThis = new System.Windows.Forms.Button();
             this.lblHelloWorld = new System.Windows.Forms.Label();
-            this.pctLineXY = new System.Windows.Forms.PictureBox();
+            //this.pctLineXY = new System.Windows.Forms.PictureBox();
             this.pctLineXY = new System.Windows.Forms.PictureBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.pctLineXY)).BeginInit();
+           //((System.ComponentModel.ISupportInitialize)(this.pctLineXY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLineXY)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,7 +119,7 @@
             this.Text = "Название Первой Программы";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.pctLineXY)).EndInit();
+           // ((System.ComponentModel.ISupportInitialize)(this.pctLineXY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLineXY)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -133,7 +133,7 @@
         private System.Windows.Forms.PictureBox pctLineXY;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
-        public System.Windows.Forms.PictureBox pctLineXY;
+        //public System.Windows.Forms.PictureBox pctLineXY;
     }
 }
 

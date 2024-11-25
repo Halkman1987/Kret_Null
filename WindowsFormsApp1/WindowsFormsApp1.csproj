@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="BotHodit.cs" />
     <Compile Include="BuffDatas.cs" />
+    <Compile Include="Check.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

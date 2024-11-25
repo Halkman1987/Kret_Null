@@ -10,30 +10,40 @@ namespace WindowsFormsApp1
 {
     internal class Risovalka
     {
-        public void DrawGorizont(int x, int y, ref PictureBox pct)
+        
+        public void DrawGorizont1(int x, int y, ref PictureBox pct)
         {
-            
+            int stepx = Form1.Pctwidth / 10; //ширина ячейки 
+            int stepy = Form1.Pctheight / 10;// высота ячейки
+            int bufX = x * stepx +(stepx/2); // stepx; //количество целых ячеек
+            int bufY = y * stepy + (stepy / 2); // stepy;
+            int bufX2 = bufX - (stepx/2);
+            int bufY2 = bufY;// - (stepy *4);
+
+            Graphics g = pct.CreateGraphics();
+            Pen pn = new Pen(Color.Blue, 3);
+            g.DrawLine(pn, bufX, bufY, bufX2, bufY2);
+            //int stepx = Form1.Pctwidth / 10; //ширина ячейки 
+            //int stepy = Form1.Pctheight / 10;// высота ячейки
+            //int bufX = x; // stepx; //количество целых ячеек
+            //int bufY = y; // stepy;
+
+            //Graphics g = pct.CreateGraphics();
+            //Pen pn = new Pen(Color.Blue, 3);
+           // g.DrawLine(pn, coordinataX1, coordinataY1, coordinataX4, coordinataY4);
+        }
+        public void DrawVertikal1(int x, int y, ref PictureBox pct)
+        {
             int stepx = Form1.Pctwidth / 10; //ширина ячейки 
             int stepy = Form1.Pctheight / 10;// высота ячейки
             int bufX = x; // stepx; //количество целых ячеек
             int bufY = y; // stepy;
+            int bufX2 = bufX - 4;
+            int bufY2 = bufY - 4;
 
             Graphics g = pct.CreateGraphics();
             Pen pn = new Pen(Color.Blue, 3);
-           // g.DrawLine(pn, coordinataX1, coordinataY1, coordinataX4, coordinataY4);
-        }
-        public void DrawVertikal(int x, int y, ref PictureBox pct)
-        {
-            int width = pct.Width;
-            int height = pct.Height;
-            int stepx = width / 10; //ширина ячейки 
-            int stepy = height / 10;// высота ячейки
-            int bufX = x; // stepx; //количество целых ячеек
-            int bufY = y; // stepy;
-
-            Graphics g = pct.CreateGraphics();
-            Pen pn = new Pen(Color.Blue, 3);
-           // g.DrawLine(pn, coordinataX1, coordinataY1, coordinataX4, coordinataY4);
+            g.DrawLine(pn, bufX, bufY, bufX2, bufY2);
         }
         public void Krestik(int x, int y, ref PictureBox pct)
         {

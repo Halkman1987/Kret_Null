@@ -10,12 +10,20 @@ namespace WindowsFormsApp1
 {
     internal class MovePeople
     {
-       BuffDatas buffDatas;
+        BuffDatas buffDatas;
+        Check check;
 
-        public MovePeople(BuffDatas buffDatas)
+        public MovePeople(BuffDatas buffDatas, Check check)
         {
             this.buffDatas = buffDatas;
+            this.check = check;
         }
+
+
+        //public MovePeople(BuffDatas buffDatas)
+        //{
+        //    this.buffDatas = buffDatas;
+        //}
 
         public void CentrovkaKrestika(MouseEventArgs e, ref PictureBox pctLineXY) // Метод для крестика
         {
@@ -44,8 +52,10 @@ namespace WindowsFormsApp1
             g.DrawLine(pn, coordinataX1, coordinataY1, coordinataX4, coordinataY4);
             g.DrawLine(pn, coordinataX3, coordinataY3, coordinataX2, coordinataY2);
             // buffDatas.buffD[bufX, bufY] = "X";
-            Form1.gameCancel = Form1.CheckWinXvert(symbol, bufX, bufY);
-            Form1.gameCancel = Form1.CheckWinXgoriz(symbol, bufX, bufY);
+            //Form1.gameCancel = 
+                check.CheckWinXvert(symbol, bufX, bufY,ref pctLineXY);
+           // Form1.gameCancel = 
+                check.CheckWinXgoriz(symbol, bufX, bufY, ref pctLineXY);
         }
         public void CentrovkaNuLLika(MouseEventArgs e, ref PictureBox pctLineXY) // Метод для Нолика
         {
@@ -62,8 +72,10 @@ namespace WindowsFormsApp1
             Pen pn = new Pen(Color.Red, 3);
             g.DrawEllipse(pn, coordinataX - 17, coordinataY - 17, 34, 34);
             buffDatas.buffD[bufX, bufY] = "O";
-            Form1.CheckWinOvert(symbol, bufX, bufY);
-            Form1.CheckWinOgoriz(symbol, bufX, bufY);
+           // Form1.gameCancel = 
+                check.CheckWinOvert(symbol, bufX, bufY, ref pctLineXY);
+           // Form1.gameCancel = 
+                check.CheckWinOgoriz(symbol, bufX, bufY, ref pctLineXY);
         }
     }
 }

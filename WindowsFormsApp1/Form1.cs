@@ -23,10 +23,10 @@ namespace WindowsFormsApp1
         
         public static BuffDatas buffDataS = new BuffDatas();// двумерный массив для хранения информ-ии по заполнению ячеек крестиком или ноликом
 
-        MovePeople movePeople = new MovePeople(buffDataS);
-        Risovalka ris = new Risovalka();
+        MovePeople movePeople = new MovePeople(buffDataS,check);
+        Risovalka riS = new Risovalka();
         BotHodit botHodit = new BotHodit(buffDataS);
-        
+        static Check check = new Check(buffDataS);
         public static int Pctwidth;
         public static int Pctheight;
         public static bool gameStarted = false;
@@ -105,104 +105,7 @@ namespace WindowsFormsApp1
                 botHodit.MoveBotKrestik(ref pctLineXY);
             }
         }
-        static public bool CheckWinXvert(string symbol, int x, int y)
-        {
-            bool win = false;
-            int counter = 0;
-            for (int i = 0; i < 10; i++)
-            {
-                if (buffDataS.buffD[x, i].Contains(symbol))
-                {
-                    counter++;
-                }
-                else
-                {
-                    if (counter == 4)
-                    {
-                        win = true;
-                        MessageBox.Show("Победа");
-                        
-                    }
-                    else
-                        counter = 0;
-                }
-            }
-            return win;
-        }
-        static public bool CheckWinXgoriz(string symbol, int x, int y)
-        {
-            bool win = false;
-            int counter = 0;
-            for (int i = 0; i < 10; i++)
-            {
-                if (buffDataS.buffD[i, y].Contains(symbol))
-                {
-                    counter++;
-                }
-                else
-                {
-                    if (counter == 4)
-                    {
-                        win = true;
-                        //ris.DrawGorizont(x, y, ref pctLineXY);
-                        MessageBox.Show("Победа");
-                    }
-                    else
-                        counter = 0;
-                }
-            }
-            return win;
-        }
-
-        static public bool CheckWinOvert(string symbol, int x, int y)
-        {
-            bool win = false;
-            int counter = 0;
-            for (int i = 0; i < 10; i++)
-            {
-                if (buffDataS.buffD[x, i].Contains(symbol))
-                {
-                    counter++;
-                }
-                else
-                {
-                    if (counter == 4)
-                    {
-                        win = true;
-                        MessageBox.Show("Победа");
-
-                    }
-                    else
-                        counter = 0;
-                }
-            }
-            return win;
-        }
-        static public bool CheckWinOgoriz(string symbol, int x, int y)
-        {
-            bool win = false;
-            int counter = 0;
-            for (int i = 0; i < 10; i++)
-            {
-                if (buffDataS.buffD[i, y].Contains(symbol))
-                {
-                    counter++;
-                }
-                else
-                {
-                    if (counter == 4)
-                    {
-                        win = true;
-                        //ris.DrawGorizont(x, y, ref pctLineXY);
-                        MessageBox.Show("Победа");
-                    }
-                    else
-                        counter = 0;
-                }
-            }
-            return win;
-        }
-
+        
         private bool CheckWinOvert()// проверка всего массива
         {
             bool win = false;
@@ -324,33 +227,32 @@ namespace WindowsFormsApp1
         }
         
         
-        
-        public void DrawGorizont(int x, int y, ref PictureBox pct)
-        {
-            int width = pct.Width;
-            int height = pct.Height;
-            int stepx = width / 10; //ширина ячейки 
-            int stepy = height / 10;// высота ячейки
-            int bufX = x; // stepx; //количество целых ячеек
-            int bufY = y; // stepy;
+        //public  void DrawGorizont(int x, int y)
+        //{
+            
+        //    int stepx = Pctwidth / 10; //ширина ячейки 
+        //    int stepy = Pctheight / 10;// высота ячейки
+        //    int bufX = x; // stepx; //количество целых ячеек
+        //    int bufY = y; // stepy;
+        //    int bufX2 = bufX-4;
+        //    int bufY2 = bufY-4;
 
-            Graphics g = pct.CreateGraphics();
-            Pen pn = new Pen(Color.Blue, 3);
-            // g.DrawLine(pn, coordinataX1, coordinataY1, coordinataX4, coordinataY4);
-        }
-        public void DrawVertikal(int x, int y, ref PictureBox pct)
-        {
-            int width = pct.Width;
-            int height = pct.Height;
-            int stepx = width / 10; //ширина ячейки 
-            int stepy = height / 10;// высота ячейки
-            int bufX = x; // stepx; //количество целых ячеек
-            int bufY = y; // stepy;
+        //    Graphics g = pctLineXY.CreateGraphics();
+        //    Pen pn = new Pen(Color.Blue, 3);
+        //    g.DrawLine(pn, bufX, bufY, bufX2, bufY2);
+        //}
+        //public void DrawVertikal(int x, int y)
+        //{
+            
+        //    int stepx = Pctwidth / 10; //ширина ячейки 
+        //    int stepy = Pctheight / 10;// высота ячейки
+        //    int bufX = x; // stepx; //количество целых ячеек
+        //    int bufY = y; // stepy;
 
-            Graphics g = pct.CreateGraphics();
-            Pen pn = new Pen(Color.Blue, 3);
-            // g.DrawLine(pn, coordinataX1, coordinataY1, coordinataX4, coordinataY4);
-        }
+        //    Graphics g = pctLineXY.CreateGraphics();
+        //    Pen pn = new Pen(Color.Blue, 3);
+        //    // g.DrawLine(pn, coordinataX1, coordinataY1, coordinataX4, coordinataY4);
+        //}
 
 
 
